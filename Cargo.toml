@@ -10,7 +10,7 @@ keywords = ["bevy", "fbx", "asset", "loader"]
 categories = ["game-development", "graphics"]
 
 [dependencies]
-bevy = { version = "0.17", default-features = false, features = [
+bevy = { version = "0.18", default-features = false, features = [
     "bevy_asset",
     "bevy_render",
     "bevy_pbr",

@@ -6,7 +6,7 @@ use crate::mesh::process_meshes;
 use crate::node::{process_nodes, process_skins};
 use crate::scene::build_scene;
 use crate::types::{Fbx, FbxAxisSystem, FbxMeta, Handedness};
-use bevy::asset::{io::Reader, AssetLoader, LoadContext, RenderAssetUsages};
+use bevy::asset::{AssetLoader, LoadContext, RenderAssetUsages, io::Reader};
 use bevy::prelude::*;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -48,7 +48,7 @@ impl Default for FbxLoaderSettings {
 ///
 /// This loader handles reading FBX files and converting them into Bevy assets,
 /// including meshes, materials, animations, and scene hierarchies.
-#[derive(Default)]
+#[derive(Default, TypePath)]
 pub struct FbxLoader;
 
 impl AssetLoader for FbxLoader {

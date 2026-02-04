@@ -62,11 +62,11 @@ pub fn process_textures(
             let texture_path = if !texture.absolute_filename.is_empty() {
                 texture.absolute_filename.to_string()
             } else {
-                let fbx_dir = load_context
-                    .path()
-                    .parent()
-                    .unwrap_or_else(|| std::path::Path::new(""));
-                fbx_dir
+                let fbx_dir_buf = match load_context.path().parent() {
+                    Some(parent) => parent.path().to_path_buf(),
+                    None => std::path::PathBuf::from(""),
+                };
+                fbx_dir_buf
                     .join(texture.filename.as_ref())
                     .to_string_lossy()
                     .to_string()
